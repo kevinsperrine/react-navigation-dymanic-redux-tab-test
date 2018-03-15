@@ -36,7 +36,7 @@ const Home = () => (
 
 const TabOne = () => (
   <View style={styles.container}>
-    <Text>Tab One</Text>
+    <Text>Tab One - I should have a clone icon!</Text>
   </View>
 );
 
@@ -52,7 +52,7 @@ const TabTwo = () => (
 
 const TabTwoA = () => (
   <View style={styles.container}>
-    <Text>Tab Two A</Text>
+    <Text>Tab Two A - I should have an '@' sign.</Text>
   </View>
 );
 
@@ -61,11 +61,9 @@ TabTwoA.navigationOptions = ({ navigation }) => ({
 });
 
 const TabTwoB = props => {
-  console.log('two-b', props);
-
   return (
     <View style={styles.container}>
-      <Text>Tab Two B</Text>
+      <Text>Tab Two B - I should have a bug icon!</Text>
     </View>
   );
 };
