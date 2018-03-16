@@ -98,6 +98,49 @@ const createStackNavigator = (key, screen) => {
   });
 };
 
+const StaticTabNavigators = TabNavigator(
+  {
+    TabOne: {
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="calendar" size={20} color={tintColor} />
+        )
+      },
+      screen: TabOne
+    },
+    TabTwo: {
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="th-large" size={20} color={tintColor} />
+        )
+      },
+      screen: TabNavigator(
+        {
+          TabTwoA: {
+            screen: TabTwoA
+          },
+          TabTwoB: {
+            screen: TabTwoB
+          }
+        },
+        {
+          animationEnabled: true,
+          swipeEnabled: true,
+          tabBarComponent: TabBarTop,
+          tabBarPosition: 'top'
+        }
+      )
+    }
+  },
+  {
+    animationEnabled: true,
+    swipeEnabled: true,
+    showIcon: true,
+    tabBarComponent: TabBarBottom,
+    tabBarPosition: 'bottom'
+  }
+);
+
 // map of components used to dymanically create the tab screens.
 const TabComponents = {
   TabTwoA,
@@ -179,8 +222,11 @@ const DrawerStack = DrawerNavigator({
   Home: {
     screen: createStackNavigator('Home', Home)
   },
-  Tabs: {
+  ReduxTabs: {
     screen: createStackNavigator('ConnectedTabs', ConnectedTabNavigators)
+  },
+  StaticTabs: {
+    screen: createStackNavigator('StaticTabs', StaticTabNavigators)
   }
 });
 
