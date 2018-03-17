@@ -1,5 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ActivityIndicator
+} from 'react-native';
 import {
   DrawerNavigator,
   StackNavigator,
@@ -124,6 +130,18 @@ const StaticTabNavigators = TabNavigator(
           }
         },
         {
+          lazy: true,
+          lazyPlaceholder: (
+            <View
+              style={{
+                alignContent: 'center',
+                flex: 1,
+                justifyContent: 'center'
+              }}
+            >
+              <ActivityIndicator size="large" color="#000" />
+            </View>
+          ),
           animationEnabled: true,
           swipeEnabled: true,
           tabBarComponent: TabBarTop,
@@ -133,6 +151,17 @@ const StaticTabNavigators = TabNavigator(
     }
   },
   {
+    lazyPlaceholder: (
+      <View
+        style={{
+          alignContent: 'center',
+          flex: 1,
+          justifyContent: 'center'
+        }}
+      >
+        <ActivityIndicator size="large" color="#000" />
+      </View>
+    ),
     animationEnabled: true,
     swipeEnabled: true,
     showIcon: true,
